@@ -17,5 +17,14 @@ inline bool running_on_main_queue(void) {
 
   return strcmp(main_queue_label, current_queue_label) == 0;
 }
+
+inline void dispatch_sync_on_main_queue(void (^block)(void)) {
+  if (running_on_main_queue()) {
+    block();
+  } else {
+    dispatch_sync(dispatch_get_main_queue(),
+                  block);
+  }
+}
 } // namespace gcd
 } // namespace pqrs
