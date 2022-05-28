@@ -13,7 +13,6 @@ project (test)
 
 add_executable(
   test
-  gcd_test.cpp
   test.cpp
 )
 
