@@ -9,8 +9,7 @@
 #include <dispatch/dispatch.h>
 #include <pthread.h>
 
-namespace pqrs {
-namespace gcd {
+namespace pqrs::gcd {
 inline void dispatch_sync_on_main_queue(void (^block)(void)) {
   if (pthread_main_np() != 0) {
     block();
@@ -19,5 +18,4 @@ inline void dispatch_sync_on_main_queue(void (^block)(void)) {
                   block);
   }
 }
-} // namespace gcd
-} // namespace pqrs
+} // namespace pqrs::gcd
