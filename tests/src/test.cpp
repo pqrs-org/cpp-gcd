@@ -3,7 +3,7 @@
 #include <pqrs/gcd.hpp>
 #include <thread>
 
-int main(void) {
+int main() {
   using namespace boost::ut;
   using namespace boost::ut::literals;
 
