@@ -2,7 +2,9 @@
 #include <pqrs/gcd.hpp>
 
 int main(void) {
-  std::cout << "running_on_main_queue: " << pqrs::gcd::running_on_main_queue() << std::endl;
+  pqrs::gcd::dispatch_sync_on_main_queue(^{
+    std::cout << "Hello from the main queue." << std::endl;
+  });
 
   return 0;
 }
