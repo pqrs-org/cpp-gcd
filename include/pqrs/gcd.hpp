@@ -10,7 +10,7 @@
 #include <pthread.h>
 
 namespace pqrs::gcd {
-inline void dispatch_sync_on_main_queue(void (^block)(void)) {
+inline void dispatch_sync_on_main_queue(void (^block)()) {
   if (pthread_main_np() != 0) {
     block();
   } else {
